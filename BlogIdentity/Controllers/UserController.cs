@@ -41,8 +41,14 @@ namespace BlogIdentity.Controllers
             }
             return View(user);
         }
-        public async Task<IActionResult> CreateUser(UsersDto userdto)
+        public async Task<IActionResult> CreateUser(Userhelper userhelper)
         {
+            UsersDto userdto = new UsersDto();
+            userdto.Name = userhelper.Name; 
+            userdto.Email= userhelper.Email;
+            userdto.Password = userhelper.Password;
+            userdto.Role= userhelper.Role;
+            userdto.blogsubscribed.Add(0);
             await _UserService.CreateAsync<UsersDto>(userdto);
            
             return View();
@@ -62,11 +68,15 @@ namespace BlogIdentity.Controllers
             return View();
         }
 
-        public async Task<IActionResult> SubscribeUnsubscribe(SubscribeUnHelper unsubscribesubs)
+        public async Task<IActionResult> SubscribeUnsubscribe(Subscribeunsubscribe unsubscribesubs)
         {
-           var status1=await _UserService.SubscribeUnsubscribe<SubscribeUnHelper>(unsubscribesubs);
+            SubscribeUnHelper subscribeUnHelper = new SubscribeUnHelper();
+            subscribeUnHelper.Isstatus = false;
+            subscribeUnHelper.Userid = unsubscribesubs.Userid;
+            subscribeUnHelper.Blogid = unsubscribesubs.Blogid;
+            var status1=await _UserService.SubscribeUnsubscribe<SubscribeUnHelper>(subscribeUnHelper);
             Boolean status = status1.Isstatus;
-            unsubscribesubs.Isstatus = status;
+            subscribeUnHelper.Isstatus = status;
 
             return View(unsubscribesubs);
         }

@@ -36,7 +36,10 @@ else
                 <th>Category</th>
                 <th>Subscriptions Allowed</th>
                 <th>Actions</th>
-                <th>MoreActions</th>
+                @if (User.IsInRole(SD.Role_Admin))
+                {
+                    <th>MoreActions</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -55,7 +58,7 @@ else
                     </td>
 
                     @if (User.IsInRole(SD.Role_Admin))
-                    { 
+                    {
                         <td>
                             @Html.ActionLink("UpdateBlog", "UpdateBlog", new { id=blog.Id }) |
                             @Html.ActionLink("GetBlogbyid", "GetBlogbyid", new { id=blog.Id }) |

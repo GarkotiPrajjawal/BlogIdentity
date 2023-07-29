@@ -1,51 +1,22 @@
-﻿@model Blog.Models.SubscribeUnHelper
+﻿@model Blog.Models.Subscribeunsubscribe
 
 <h2>Subscribe/Unsubscribe</h2>
 
-<p>
-    @if (Model.Isstatus)
-    {
-        <span>You are subscribed to this blog.</span>
+
+    
         <form method="post" asp-action="SubscribeUnsubscribe">
-            <div class="form-group">
-                <label asp-for="Userid">User ID:</label>
-                <input type="text" class="form-control" asp-for="Userid" required>
+            <div class="form-floating py-2 col-12">
+            <input asp-for="Userid" class="form-control border-0 shadow" />
+            <label asp-for="Userid" class="ms-2"></label>
+            <span asp-validation-for="Userid" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Blogid">Blog ID:</label>
-                <input type="text" class="form-control" asp-for="Blogid" required>
+            <div class="form-floating py-2 col-12">
+            <input asp-for="Blogid" class="form-control border-0 shadow" />
+            <label asp-for="Blogid" class="ms-2"></label>
+            <span asp-validation-for="Blogid" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label for="Isstatus">Isstatus:</label>
-                <select class="form-control" asp-for="Isstatus" required>
-                    <option value="true">True</option>
-                    <option value="false">False</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-success">Subscribe</button>
+
+    <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
-    }
-    else
-    {
-        <span>You are not subscribed to this blog.</span>
-        <form method="post" asp-action="SubscribeUnsubscribe">
-            <div class="form-group">
-                <label asp-for="Userid">User ID:</label>
-                <input type="text" class="form-control" asp-for="Userid" required>
-            </div>
-            <div class="form-group">
-                <label asp-for="Blogid">Blog ID:</label>
-                <input type="text" class="form-control" asp-for="Blogid" required>
-            </div>
-            <div class="form-group">
-                <label for="Isstatus">Isstatus:</label>
-                <select class="form-control" asp-for="Isstatus" required>
-                    <option value="true">True</option>
-                    <option value="false">False</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-success">Subscribe</button>
-        </form>
-    }
-</p>
+   

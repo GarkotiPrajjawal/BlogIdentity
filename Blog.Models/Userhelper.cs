@@ -5,19 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blog.Models.Dto
+namespace Blog.Models
 {
-    public class UsersDto
+    public class Userhelper
     {
-        public UsersDto()
-        {
-            // Initialize the blogsubscribed list in the constructor
-            blogsubscribed = new List<int>();
-        }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
+        [Required]
         public string Role { get; set; }
-        public List<int> blogsubscribed { get; set; }
     }
 }
