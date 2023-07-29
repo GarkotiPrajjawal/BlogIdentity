@@ -1,0 +1,28 @@
+﻿@model Blog.Models.Blogs
+
+<h2>Blog with Maximum Subscribers</h2>
+
+@if (Model == null)
+{
+    <p>No blogs found.</p>
+}
+else
+{
+    <div>
+        <h4>Blog Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Title:</dt>
+            <dd class="col-sm-10">@Model.Title</dd>
+
+            <dt class="col-sm-2">Content:</dt>
+            <dd class="col-sm-10">@Model.Content</dd>
+
+            <dt class="col-sm-2">Category:</dt>
+            <dd class="col-sm-10">@Model.Category</dd>
+
+            <dt class="col-sm-2">Subscriptions Allowed:</dt>
+            <dd class="col-sm-10">@Model.SubscriptionsAllowed</dd>
+        </dl>
+    </div>
+}

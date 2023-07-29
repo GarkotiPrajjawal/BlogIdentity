@@ -25,7 +25,6 @@ namespace BlogIdentity.Controllers
             }
             return View(list);
         }
-        //dfghjk
         public async Task<IActionResult> GetBlogbyid(int id)
         {
             Blogs blog = new();
@@ -36,7 +35,7 @@ namespace BlogIdentity.Controllers
             }
             return View(blog);
         }
-        public async Task<IActionResult> CreateUser(BlogsDto blogdto)
+        public async Task<IActionResult> CreateBlog(BlogsDto blogdto)
         {
             await _BlogService.CreateAsync<BlogsDto>(blogdto);
 

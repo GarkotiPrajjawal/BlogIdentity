@@ -24,6 +24,11 @@ else
 
     <table>
         <thead>
+        <td>
+
+            <a asp-controller="Blog" asp-action="GetBlogwithmaximumsubscriber">GetBlogwithmaximumsubscriber</a>
+
+        </td>
             <tr>
                 <th>Id</th>
                 <th>Title</th>
@@ -31,6 +36,7 @@ else
                 <th>Category</th>
                 <th>Subscriptions Allowed</th>
                 <th>Actions</th>
+                <th>MoreActions</th>
             </tr>
         </thead>
         <tbody>
@@ -44,9 +50,19 @@ else
                     <td>@blog.SubscriptionsAllowed</td>
                     <td>
 
-                        <a asp-controller="Blog" asp-action="Subscribe/Unsubscribe" asp-route-blogId="@blog.Id">Subscribe/Unsubscribe</a>
+                        <a asp-controller="User" asp-action="SubscribeUnsubscribe" >Subscribe/Unsubscribe</a>
 
                     </td>
+
+                    @if (User.IsInRole(SD.Role_Admin))
+                    { 
+                        <td>
+                            @Html.ActionLink("UpdateBlog", "UpdateBlog", new { id=blog.Id }) |
+                            @Html.ActionLink("GetBlogbyid", "GetBlogbyid", new { id=blog.Id }) |
+                            @Html.ActionLink("DeleteBlog", "DeleteBlog", new { id=blog.Id }) |
+                            @Html.ActionLink("CreateBlog", "CreateBlog")
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

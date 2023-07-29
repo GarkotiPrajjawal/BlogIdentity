@@ -28,6 +28,7 @@ else
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -38,7 +39,17 @@ else
                     <td>@user.Name</td>
                     <td>@user.Email</td>
                     <td>@user.Role</td>
+                    @if (User.IsInRole(SD.Role_Admin))
+                    {
+                        <td>
+                            @Html.ActionLink("UpdateUser", "UpdateUser", new { id=user.Id }) |
+                            @Html.ActionLink("GetUserbyid", "GetUserbyid", new { id=user.Id }) |
+                            @Html.ActionLink("DeleteUser", "DeleteUser", new { id=user.Id }) |
+                            @Html.ActionLink("CreateUser", "CreateUser")
+                        </td>
+                    }
                 </tr>
+                
             }
         </tbody>
     </table>

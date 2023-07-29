@@ -22,6 +22,6 @@ namespace Blog.Models
         public string Password { get; set; }
         [Required]
         public string Role { get; set; }
-        public List<int> blogsubscribed { get; set; }
+        public List<int>? blogsubscribed { get; set; }
     }
 }

@@ -1,0 +1,41 @@
+﻿@model Blog.Models.Blogs
+
+<h2>Blog Details</h2>
+
+<style>
+    table {
+        border-collapse: separate;
+        border-spacing: 10px; /* Adjust this value to control the space between columns */
+    }
+
+    th,
+    td {
+        padding: 10px; /* Adjust this value to control the space within each cell */
+        border: 1px solid #ccc; /* Add border to separate the cells */
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Category</th>
+            <th>Subscriptions Allowed</th>
+        </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Title</td>
+            <td>@Model.Content</td>
+            <td>@Model.Category</td>
+            <td>@Model.SubscriptionsAllowed</td>
+            <td>
+
+                <a asp-controller="Blog" asp-action="GetBlogbyid" asp-route-blogId="@Model.Id">Subscribe/Unsubscribe</a>
+
+            </td>
+    </thead>
+    <tbody>
+
+<a asp-action="Index">Back to List</a>

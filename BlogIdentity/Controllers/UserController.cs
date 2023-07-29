@@ -66,8 +66,9 @@ namespace BlogIdentity.Controllers
         {
            var status1=await _UserService.SubscribeUnsubscribe<SubscribeUnHelper>(unsubscribesubs);
             Boolean status = status1.Isstatus;
+            unsubscribesubs.Isstatus = status;
 
-            return View(status);
+            return View(unsubscribesubs);
         }
 
 

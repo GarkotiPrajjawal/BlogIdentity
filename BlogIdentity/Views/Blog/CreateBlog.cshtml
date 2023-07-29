@@ -1,0 +1,27 @@
+﻿@model Blog.Models.Dto.BlogsDto
+
+<h2>Create Blog</h2>
+
+<form method="post" asp-action="CreateBlog">
+    <div class="form-group">
+        <label for="Title">Title:</label>
+        <input type="text" class="form-control" id="Title" name="Title" required>
+    </div>
+    <div class="form-group">
+        <label for="Content">Content:</label>
+        <textarea class="form-control" id="Content" name="Content" rows="5" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Category">Category:</label>
+        <input type="text" class="form-control" id="Category" name="Category" required>
+    </div>
+    <div class="form-group">
+        <label for="SubscriptionsAllowed">Subscriptions Allowed:</label>
+        <input type="number" class="form-control" id="SubscriptionsAllowed" name="SubscriptionsAllowed" required>
+    </div>
+    <div class="form-group">
+        <label for="SubscriptionsUsed">Subscriptions Used:</label>
+        <input type="number" class="form-control" id="SubscriptionsUsed" name="SubscriptionsUsed" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

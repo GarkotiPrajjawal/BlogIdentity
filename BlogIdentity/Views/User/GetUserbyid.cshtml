@@ -1,0 +1,39 @@
+﻿@model Blog.Models.Users
+
+<h2>User Details</h2>
+
+<style>
+    table {
+        border-collapse: separate;
+        border-spacing: 10px; /* Adjust this value to control the space between columns */
+    }
+
+    th,
+    td {
+        padding: 10px; /* Adjust this value to control the space within each cell */
+        border: 1px solid #ccc; /* Add border to separate the cells */
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subscriptions Allowed</th>
+        </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.Email</td>
+            <td>@Model.Role</td>
+            <td>
+
+                <a asp-controller="User" asp-action="GetUserbyid" asp-route-blogId="@Model.Id">Subscribe/Unsubscribe</a>
+
+            </td>
+    </thead>
+    <tbody>
+
+<a asp-action="Index">Back to List</a>
