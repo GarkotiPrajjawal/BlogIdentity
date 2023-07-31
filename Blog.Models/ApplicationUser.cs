@@ -14,9 +14,9 @@ namespace Blog.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string? Email { get; set; }
-       
-        public string? Role { get; set; }
+        public string Email { get; set; }
+        [Required]
+        public string Role { get; set; }
         public List<int>? blogsubscribed { get; set; }
 
     }

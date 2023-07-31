@@ -8,10 +8,10 @@ namespace Blog.Models
 {
     public class SubscribeUnHelper
     {
-        public int Userid;
-        public int Blogid;
+        public int Userid { get; set; }
+        public int Blogid { get; set; }
 
-        public Boolean Isstatus;
+        public Boolean Isstatus { get; set; }
 
     }
 }

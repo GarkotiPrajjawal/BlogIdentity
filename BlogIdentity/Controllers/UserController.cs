@@ -68,19 +68,19 @@ namespace BlogIdentity.Controllers
             return View();
         }
 
-        public async Task<IActionResult> SubscribeUnsubscribe(Subscribeunsubscribe unsubscribesubs)
+        public async Task<IActionResult> SubscribeUnsubscribe(SubscribeUnHelper subscribeUnHelper)
         {
-            SubscribeUnHelper subscribeUnHelper = new SubscribeUnHelper();
-            subscribeUnHelper.Isstatus = false;
-            subscribeUnHelper.Userid = unsubscribesubs.Userid;
-            subscribeUnHelper.Blogid = unsubscribesubs.Blogid;
+            
             var status1=await _UserService.SubscribeUnsubscribe<SubscribeUnHelper>(subscribeUnHelper);
             Boolean status = status1.Isstatus;
             subscribeUnHelper.Isstatus = status;
 
-            return View(unsubscribesubs);
+            return View(subscribeUnHelper);
         }
-
+        public IActionResult privacy()
+        {
+            return View();
+        }
 
     }
 }

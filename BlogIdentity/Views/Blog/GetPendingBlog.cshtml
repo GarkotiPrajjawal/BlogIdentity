@@ -1,0 +1,69 @@
+﻿@using Blog.Models
+@model List<Blogs>
+
+<h2>List of Blogs</h2>
+
+@if (Model.Count == 0)
+{
+    <p>No users found.</p>
+}
+else
+{
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 10px; /* Adjust this value to control the space between columns */
+        }
+
+        th,
+        td {
+            padding: 10px; /* Adjust this value to control the space within each cell */
+            border: 1px solid #ccc; /* Add border to separate the cells */
+        }
+    </style>
+
+    <table>
+        <thead>
+        
+
+            
+
+
+
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Category</th>
+            <th>Subscriptions Allowed</th>
+            <th>Actions</th>
+                @if (User.IsInRole(SD.Role_Admin))
+                {
+                <th>MoreActions</th>
+                }
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var blog in Model)
+            {
+                <tr>
+                    <td>@blog.Id</td>
+                    <td>@blog.Title</td>
+                    <td>@blog.Content</td>
+                    <td>@blog.Category</td>
+                    <td>@blog.SubscriptionsAllowed</td>
+                    
+
+                    @if (User.IsInRole(SD.Role_Admin))
+                    {
+                        <td>
+                            @Html.ActionLink("ApproveBlog", "ApproveBlog", new { id=blog.Id }) |
+                            @Html.ActionLink("RejectBlog", "RejectBlog", new { id=blog.Id }) 
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

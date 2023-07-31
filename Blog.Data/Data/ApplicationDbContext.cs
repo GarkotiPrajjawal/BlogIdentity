@@ -18,6 +18,7 @@ namespace Blog.Data
         }
         public DbSet<Blogs> Blogs { get; set; }
         public DbSet<Users> Users { get; set; }
+       // public DbSet<PendingBlogs> PendingBlogs { get; set; }
         public DbSet<ApplicationUser> applicationuser { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

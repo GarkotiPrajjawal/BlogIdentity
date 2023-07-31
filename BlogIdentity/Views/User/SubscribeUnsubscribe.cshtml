@@ -1,22 +1,30 @@
-﻿@model Blog.Models.Subscribeunsubscribe
+﻿@model Blog.Models.SubscribeUnHelper
 
-<h2>Subscribe/Unsubscribe</h2>
+@if (Model.Userid == 0 || Model.Blogid == 0)
+{
+    <h2>Subscribe/Unsubscribe</h2>
+}
+else{
+@if (Model.Isstatus)
+{
+    <h2>You have successfully Subscribed to the channel</h2>
+}
+else
+{
+        <h2>You have successfully Unsubscribe to the channel</h2>
+    }           }
+<form method="post" asp-action="SubscribeUnsubscribe">
+    <div class="form-floating py-2 col-12">
+        <input asp-for="Userid" class="form-control border-0 shadow" />
+        <label asp-for="Userid" class="ms-2"></label>
+        <span asp-validation-for="Userid" class="text-danger"></span>
+    </div>
+    <div class="form-floating py-2 col-12">
+        <input asp-for="Blogid" class="form-control border-0 shadow" />
+        <label asp-for="Blogid" class="ms-2"></label>
+        <span asp-validation-for="Blogid" class="text-danger"></span>
+    </div>
 
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
 
-    
-        <form method="post" asp-action="SubscribeUnsubscribe">
-            <div class="form-floating py-2 col-12">
-            <input asp-for="Userid" class="form-control border-0 shadow" />
-            <label asp-for="Userid" class="ms-2"></label>
-            <span asp-validation-for="Userid" class="text-danger"></span>
-            </div>
-
-            <div class="form-floating py-2 col-12">
-            <input asp-for="Blogid" class="form-control border-0 shadow" />
-            <label asp-for="Blogid" class="ms-2"></label>
-            <span asp-validation-for="Blogid" class="text-danger"></span>
-            </div>
-
-    <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-   

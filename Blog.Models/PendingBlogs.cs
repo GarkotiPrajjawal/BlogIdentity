@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Blog.Models
 {
-    public class Blogs
+    public class PendingBlogs
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
@@ -21,7 +20,5 @@ namespace Blog.Models
         [Required]
         public int SubscriptionsAllowed { get; set; }
         public int SubscriptionsUsed { get; set; }
-        [Required]
-        public String Status { get; set; }
     }
 }

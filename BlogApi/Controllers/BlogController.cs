@@ -43,7 +43,7 @@ namespace BlogApi.Controllers
         {
             if (id == null) { return BadRequest(); }
 
-            Blogs blog = await _BlogsRepository.GetAsync(u => u.Id == id);
+            Blogs blog = await _BlogsRepository.GetAsync(u => u.Id == id,false);
             if (blog == null)
             {
                 return NotFound();

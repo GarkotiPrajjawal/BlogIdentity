@@ -8,7 +8,7 @@ namespace Blog.Models
 {
     public class Subscribeunsubscribe
     {
-        public int Userid;
-        public int Blogid;
+        public int Userid { get; set; }
+        public int Blogid { get; set; }
     }
 }
