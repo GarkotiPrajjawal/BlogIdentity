@@ -15,13 +15,17 @@ namespace Blog.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
+        [StringLength(80)]
         public string Name { get; set; }
         [Required]
+        [StringLength(80)]
         public string Email { get; set; }
         [Required]
+        [StringLength(80)]
         public string Password { get; set; }
         [Required]
         public string Role { get; set; }
+        [Range(1, 100)]
         public List<int>? blogsubscribed { get; set; }
     }
 }

@@ -99,9 +99,9 @@ namespace BlogIdentity.Controllers
         }
         public async Task<IActionResult> ApproveBlog(int id)
         {
-            Blogs response = await _BlogService.GetAsync<Blogs>(id);
-            response.Status = "approved";
-            await _BlogService.UpdateAsync<Blogs>(response);
+            Blogs blogs = await _BlogService.GetAsync<Blogs>(id);
+            blogs.Status = "approved";
+            await _BlogService.UpdateAsync<Blogs>(blogs);
             return RedirectToAction("GetPendingBlog");
         }
         public async Task<IActionResult> RejectBlog(int id)
